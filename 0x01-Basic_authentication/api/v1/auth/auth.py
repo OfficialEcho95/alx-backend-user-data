@@ -9,6 +9,7 @@ from typing import List, TypeVar
 class Auth:
     """Returns Autentication for now.
     """
+
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """Checks if a path requires authentication.
         """
