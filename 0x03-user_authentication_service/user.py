@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, Sequence
 """
 a module which contains a User class
 """
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, Integer, String, Sequence
 
 
 Base = declarative_base()
