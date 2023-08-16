@@ -11,6 +11,7 @@ from user import User
 from user import Base
 from sqlalchemy.orm.exc import NoResultFound
 
+
 def _hash_password(password: str) -> bytes:
     """hashes and salts strings using bcrpt.hashpw"""
     pswd = password.encode('utf-8')
