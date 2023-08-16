@@ -45,11 +45,8 @@ class DB:
         session = self._session
         try:
             user = session.query(User).filter_by(**kwargs).first()
-            if user is None:
-                raise NoResultFound
             return user
-        except InvalidRequestError as e:
-            session.rollback()
-            raise e
-        finally:
-            session.close()
+        except InvalidRequestError:
+            raise
+        except NoResultFound:
+            raise
