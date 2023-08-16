@@ -33,7 +33,7 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    def add_user(self, email: str, hashed_password) -> User:
+    def add_user(self, email: str, hashed_password: str) -> User:
         """returns a User object"""
         user_add = User(email=email, hashed_password=hashed_password)
         self._session.add(user_add)
