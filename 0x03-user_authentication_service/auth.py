@@ -8,7 +8,7 @@ and hashes it
 import bcrypt
 
 
-def _hash_password(password):
+def _hash_password(password: str) -> bytes:
     """hashes and salts strings using bcrpt.hashpw"""
     pswd = password.encode('utf-8')
     salt = bcrypt.gensalt()
