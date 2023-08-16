@@ -52,11 +52,12 @@ class DB:
             raise
 
     def update_user(self, user_id, **kwargs) -> None:
-        to_update = self.find_user_by(id = user_id)
+        """A method to update user data"""
+        to_update = self.find_user_by(id=user_id)
         if to_update:
             for attr, value in kwargs.items():
                 if hasattr(to_update, attr):
-                    setattr(to_update, attr, value)        
+                    setattr(to_update, attr, value)
         else:
             raise ValueError
         self._session.commit()
