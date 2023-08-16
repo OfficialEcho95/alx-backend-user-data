@@ -46,7 +46,7 @@ class DB:
         try:
             user = session.query(User).filter_by(**kwargs).first()
             if user is None:
-                raise NoResultFound("No user found.")
+                raise NoResultFound
             return user
         except InvalidRequestError as e:
             session.rollback()
