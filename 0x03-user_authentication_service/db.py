@@ -40,11 +40,11 @@ class DB:
         self._session.commit()
         return user_add
 
-    def find_user_by(self, **kwargs):
+    def find_user_by(self, **kwargs) -> User:
         """ this function queries the db """
         session = self._session
         try:
-            user = session.query(User).filter_by(**kwargs).first()
+            user = session.query(User).filter_by(**kwargs).one()
             return user
         except InvalidRequestError:
             raise
