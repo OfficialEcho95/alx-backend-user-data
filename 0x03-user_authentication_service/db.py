@@ -41,6 +41,7 @@ class DB:
         return user_add
 
     def find_user_by(self, **kwargs):
+        """ this function queries the db """
         session = self._session
         try:
             user = session.query(User).filter_by(**kwargs).first()
