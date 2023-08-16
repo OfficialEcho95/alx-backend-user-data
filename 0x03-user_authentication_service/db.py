@@ -44,7 +44,7 @@ class DB:
         """ this function queries the db """
         session = self._session
         try:
-            user = session.query(User).filter_by(**kwargs).first()
+            user = session.query(User).filter_by(**kwargs).one()
             return user
         except InvalidRequestError:
             raise
