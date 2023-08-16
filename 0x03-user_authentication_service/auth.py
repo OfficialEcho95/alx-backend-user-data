@@ -10,6 +10,7 @@ from db import DB
 from user import User
 from user import Base
 
+
 def _hash_password(password: str) -> bytes:
     """hashes and salts strings using bcrpt.hashpw"""
     pswd = password.encode('utf-8')
