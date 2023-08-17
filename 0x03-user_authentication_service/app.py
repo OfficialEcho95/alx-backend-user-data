@@ -19,6 +19,7 @@ def welcome():
 
 @app.route('/users', methods=['POST'])
 def register_users():
+    """the endpoint to register users"""
     email = request.form.get('email')
     password = request.form.get('password')
     try:
