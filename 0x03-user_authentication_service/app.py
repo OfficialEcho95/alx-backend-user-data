@@ -17,8 +17,8 @@ def welcome():
     return jsonify(message)
 
 
-@app.route('/users', methods=['POST'])
-def register_users():
+@app.route('/users', methods=['POST'], strict_slashes=False)
+def register_users() -> str:
     """the endpoint to register users"""
     email = request.form.get('email')
     password = request.form.get('password')
