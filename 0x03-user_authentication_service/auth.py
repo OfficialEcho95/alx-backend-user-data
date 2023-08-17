@@ -60,7 +60,6 @@ class Auth:
         try:
             user = self._db.find_user_by(email=email)
             session_id = _generate_uuid()
-            # user = self._db.update_user(email, session_id=session_id)
             user = self._db.add_user(email, session_id)
             return session_id
         except NoResultFound:
