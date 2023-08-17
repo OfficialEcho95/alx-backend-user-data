@@ -86,12 +86,11 @@ class Auth:
         """update user reset token"""
         if user == None:
             raise ValueError
-        try:
-            user = self._db.find_user_by(email)
-            if user:
-                session_id = _generate_uuid()
-                reset_token = self._db.update_user(
-                    email, reset_token=session_id)
-                return reset_token
-        except ValueError:
-            return None
+        user = self._db.find_user_by(email)
+        if user:
+            session_id = _generate_uuid()
+            reset_token = self._db.update_user(
+                email, reset_token=session_id)
+            return reset_token
+        else:
+            raise ValueError
