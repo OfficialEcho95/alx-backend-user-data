@@ -6,6 +6,8 @@ and hashes it
 
 
 import bcrypt
+import uuid
+from uuid import uuid4
 from db import DB
 from user import User
 from user import Base
@@ -18,6 +20,11 @@ def _hash_password(password: str) -> bytes:
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(pswd, salt)
     return hashed_password
+
+
+def _generate_uuid():
+    """uuid generator"""
+    return str(uuid.uuid4())
 
 
 class Auth:
