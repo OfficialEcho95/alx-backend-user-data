@@ -90,7 +90,7 @@ class Auth:
         if user:
             session_id = _generate_uuid()
             reset_token = self._db.update_user(
-                email, reset_token=session_id)
+            user.id, reset_token=session_id)
             return reset_token
         else:
             raise ValueError
