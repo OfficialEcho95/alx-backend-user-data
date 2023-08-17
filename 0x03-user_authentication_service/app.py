@@ -43,6 +43,7 @@ def login() -> str:
         response.set_cookie('session_id', session_id)
         return response
 
+
 @app.route('/sessions', methods=['DELETE'], strict_slashes=False)
 def logout() -> str:
     """
@@ -57,6 +58,7 @@ def logout() -> str:
         return redirect('/', code=302)
     else:
         abort(403)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
