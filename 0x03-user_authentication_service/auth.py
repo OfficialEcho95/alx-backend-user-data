@@ -59,8 +59,9 @@ class Auth:
         """create and store user sessions"""
         try:
             user = self._db.find_user_by(email=email)
+        except NoResultFound:
+            return None
+
             session_id = _generate_uuid()
             user = self._db.add_user(email, session_id)
             return session_id
-        except NoResultFound:
-            return None
